@@ -29,7 +29,12 @@ public class BMGraphics extends JPanel implements KeyListener {
         //instantierer variabler for brikernes lokation
         int posX = 0;
         int posY = 0;
-        int startPos = 10;
+        int startPos = 15;
+
+        //skriver længden af spillernes bomber
+        g.setColor(Color.black);
+        g.drawString(String.valueOf(BMManager.player1.getSpreadLenght()), 10, 10);
+        g.drawString(String.valueOf(BMManager.player2.getSpreadLenght()), 400, 500);
 
         //repeats for rows (gametable[row][col])
         for (int row = 0; row < BMManager.gameTable.length; row++) {
@@ -66,6 +71,9 @@ public class BMGraphics extends JPanel implements KeyListener {
                         g.fillRect(boxSize * posX + startPos, boxSize * posY + startPos, boxSize, boxSize);
                     } else if (tile == "fire") {
                         g.setColor(Color.red);
+                        g.fillRect(boxSize * posX + startPos, boxSize * posY + startPos, boxSize, boxSize);
+                    } else if (tile == "crate") {
+                        g.setColor(Color.MAGENTA);
                         g.fillRect(boxSize * posX + startPos, boxSize * posY + startPos, boxSize, boxSize);
                     }
                     g.setColor(Color.BLACK);
